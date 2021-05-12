@@ -116,10 +116,12 @@ namespace LinkedList
     public class LinkedList
     {
         Node HeadNode;
+
         public LinkedList()
         {
             HeadNode = null;
         }
+
         public LinkedList(int input)
         {
             HeadNode = new Node(input);
@@ -152,6 +154,7 @@ namespace LinkedList
                 HeadNode.AddSorted(input);
             }
         }
+
         public void Prepend(int input)
         {
             if (HeadNode == null)
