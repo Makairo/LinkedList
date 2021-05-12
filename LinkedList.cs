@@ -171,12 +171,26 @@ namespace LinkedList
 
         public void Print()
         {
+            if(HeadNode == null)
+            {
+                return;
+            }
             HeadNode.Print();
         }
 
         public void DeleteWithValue(int input)
         {
-            HeadNode.DeleteWithValue(input);
+            if (HeadNode == null)
+            {
+                return;
+            }
+            if (input == HeadNode.data)
+            {
+                HeadNode = HeadNode.next;
+            }else
+            {
+                HeadNode.DeleteWithValue(input);
+            }
         }
 
         public void DeleteIndex(int index)
