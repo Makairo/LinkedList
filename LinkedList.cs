@@ -108,9 +108,11 @@ namespace LinkedList
                 next.AddSorted(input);
             }
         }
-
-
     }
+
+
+
+
     public class LinkedList
     {
         Node HeadNode;
