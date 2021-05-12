@@ -197,8 +197,17 @@ namespace LinkedList
 
         public int Count()
         {
-            return HeadNode.Count();
+            if(HeadNode == null)
+            {
+                return 0;
+            }
+            else
+            {
+                return HeadNode.Count();
+            }
+
         }
+
 
     }
 }
