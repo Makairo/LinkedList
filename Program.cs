@@ -7,20 +7,17 @@ namespace LinkedList
         static void Main(string[] args)
         {
             LinkedList myList = new LinkedList();
-            myList.AddSorted(9);
-            myList.AddSorted(7);
-            myList.AddSorted(5);
-            myList.AddSorted(3);
-            myList.AddSorted(11);
+            myList.Append(9);
+            myList.Append(7);
+            myList.Append(5);
+            myList.Append(3);
+            myList.Append(11);
 
 
             myList.Print();
 
-            myList.DeleteIndex(3);
+            myList.Sort();
 
-            myList.Print();
-
-            myList.DeleteIndex(0);
 
             myList.Print();
 

@@ -6,10 +6,26 @@ namespace LinkedList
 {
     class Node
     {
-        public int data;
-        public Node next;
-        static int count = 0;
+        public int data
+        {
+            get 
+            {
+                return data;
+            }
+            private set 
+            {
+                data = value;
+            }
+        }
 
+        public Node next;
+        private static int count = 0;
+
+        public Node()
+        {
+            data = 0;
+            next = null;
+        }
         public Node(int input)
         {
             data = input;
@@ -52,10 +68,33 @@ namespace LinkedList
             {
                 this.next = next.next;
             }
+            if (next == null)
+            {
+                return;
+            }
             else
             {
                 
                 next.DeleteIndex(index);
+            }
+            count = 0;
+        }
+
+        public void Insert(int index, int input)
+        {
+            count++;
+
+            if (count == index)
+            {
+                this.data = input;
+            }
+            if (next == null)
+            {
+                return;
+            }
+            else
+            {
+                next.Insert(index, input);
             }
             count = 0;
         }
@@ -108,6 +147,47 @@ namespace LinkedList
                 next.AddSorted(input);
             }
         }
+
+        public void Sort()
+        {
+            if (next == null)
+            {
+                return;
+            }
+            if(next.next == null)
+            {
+                while (this.data > next.data)
+                {
+                    int temp = this.data;
+                    this.data = next.data;
+                    next.data = temp;
+                    next.Sort();
+                }
+            }
+            else
+            {
+                while (next.data > next.next.data)
+                {
+                    int temp = next.data;
+                    next.data = next.next.data;
+                    next.next.data = temp;
+                    next.Sort();
+                }
+                while (this.data > next.data)
+                {
+                    int temp = this.data;
+                    this.data = next.data;
+                    next.data = temp;
+                    next.Sort();
+                }
+            }
+            
+            next.Sort();
+
+
+        }
+
+
     }
 
 
@@ -153,6 +233,15 @@ namespace LinkedList
             {
                 HeadNode.AddSorted(input);
             }
+        }
+
+        public void Sort()
+        {
+            if(HeadNode == null)
+            {
+                return;
+            }
+            HeadNode.Sort();
         }
 
         public void Prepend(int input)
@@ -219,9 +308,19 @@ namespace LinkedList
             {
                 return HeadNode.Count();
             }
-
         }
 
+        public void Insert(int index, int input)
+        {
+            if (HeadNode == null)
+            {
+                Prepend(input);
+            }
+            else
+            {
+                HeadNode.Insert(index, input);
+            }
+        }
 
     }
 }
