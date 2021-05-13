@@ -143,43 +143,16 @@ namespace LinkedList
 
         public void Sort()
         {
-            if (next == null)
-            {
-                return;
-            }
-            if(next.next == null)
-            {
-                while (this.data > next.data)
-                {
-                    int temp = this.data;
-                    this.data = next.data;
-                    next.data = temp;
-                    next.Sort();
-                }
-            }
-            else
-            {
-                while (next.data > next.next.data)
-                {
-                    int temp = next.data;
-                    next.data = next.next.data;
-                    next.next.data = temp;
-                    next.Sort();
-                }
-                while (this.data > next.data)
-                {
-                    int temp = this.data;
-                    this.data = next.data;
-                    next.data = temp;
-                    next.Sort();
-                }
-            }
-            
-            next.Sort();
 
+            while (next != null && this.data > next.data)
+            {
+                int temp = this.data;
+                this.data = next.data;
+                next.data = temp;
+                next.Sort();
+            }
 
         }
-
 
     }
 
