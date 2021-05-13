@@ -8,14 +8,7 @@ namespace LinkedList
     {
         public int data
         {
-            get 
-            {
-                return data;
-            }
-            private set 
-            {
-                data = value;
-            }
+            get; private set;
         }
 
         public Node next;
